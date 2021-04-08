@@ -1,0 +1,88 @@
+#include "Stepper.h"
+#include <Servo.h>
+#include "IRremote.h"
+
+Servo servo;
+Servo servo1;
+Servo servo2;
+Servo servo0;
+
+int angle=120;
+int angle0=75;
+int angle1=50;
+int angle2=40;
+
+int StepsPerRev = 2048;
+int MotorSpeed = 12;
+Stepper myStepper(StepsPerRev, 8, 10, 9, 11);
+
+
+void setup()
+{ 
+  servo.attach(5);  
+  servo.write(angle);
+  
+  servo0.attach(2); 
+  servo0.write(angle0);
+  
+  servo1.attach(3); 
+  servo1.write(angle1);
+  
+  servo2.attach(4);
+  servo2.write(angle2); 
+
+   myStepper.setSpeed(MotorSpeed);   
+                     myStepper.step(2000);
+                      delay(500);
+                      
+  servo0.write(80); delay(1000);
+servo1.write(45); delay(1000);
+  servo2.write(30); delay(1000);
+servo0.write(85); delay(1000);
+servo0.write(90); delay(1000);
+servo1.write(38); delay(1000);
+
+servo0.write(80); delay(500);
+servo0.write(75); delay(500);
+servo0.write(70); delay(500);
+servo0.write(65); delay(500);
+servo0.write(60); delay(500);
+servo0.write(55); delay(500);
+servo0.write(50); delay(500);
+servo0.write(45); delay(500);
+
+servo1.write(50); delay(500);
+servo0.write(55); delay(500);
+
+servo2.write(15); delay(500);
+servo1.write(45); delay(200);
+
+servo0.write(60); delay(500);
+servo0.write(65); delay(500);
+servo0.write(70); delay(500);
+servo0.write(75); delay(500);
+servo0.write(80); delay(500);
+servo0.write(85); delay(500);
+servo0.write(90); delay(500);
+servo0.write(95); delay(500);
+servo0.write(100); delay(500);
+
+servo2.write(5); delay(200);
+
+ servo0.write(80); delay(500);
+servo0.write(75); delay(500);
+servo0.write(70); delay(500);
+servo0.write(65); delay(500);
+servo0.write(60); delay(500);
+servo0.write(55); delay(500);
+servo0.write(50); delay(500);
+servo0.write(45); delay(500);
+
+
+
+   
+}
+
+void loop()
+{
+}
