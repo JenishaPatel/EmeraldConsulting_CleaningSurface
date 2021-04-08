@@ -1,0 +1,55 @@
+#include <Servo.h>
+
+Servo servo1;
+Servo servo2;
+Servo servo0;  
+
+
+void setup() 
+{
+
+  servo0.attach(2); 
+  servo0.write(75); delay(1000);
+servo1.attach(3); 
+servo1.write(38); delay(1000);
+servo2.attach(4);  
+
+servo2.write(65); delay(1500 );
+  servo0.write(65); delay(1000);
+  servo0.write(60); delay(1000);
+   servo0.write(55); delay(1000);
+  servo0.write(50); delay(1000);
+    servo0.write(45); delay(1000);
+    
+servo2.write(55);delay(1000);
+  servo0.write(50); delay(1000);
+   servo0.write(55); delay(1000);
+   servo0.write(60); delay(1000);
+   servo0.write(65); delay(1000);
+      servo0.write(70); delay(1000);
+         servo0.write(75); delay(1000);
+
+  servo1.write(45); delay(1000);
+ servo2.write(40); delay(1000);
+  servo0.write(65); delay(1000);
+  servo0.write(60); delay(1000);
+   servo0.write(55); delay(1000);
+  servo0.write(50); delay(1000);
+    servo0.write(45); delay(1000);
+
+   servo2.write(28); delay(1000);
+ servo0.write(50); delay(1000);
+   servo0.write(55); delay(1000);
+   servo0.write(60); delay(1000);
+   servo0.write(65); delay(1000);
+      servo0.write(70); delay(1000);
+         servo0.write(75); delay(1000);
+         servo0.write(80); delay(1000);
+         servo0.write(85); delay(1000);   
+
+
+}
+
+void loop() {
+ 
+}
