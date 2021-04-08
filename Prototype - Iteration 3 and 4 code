@@ -1,0 +1,116 @@
+#include "Stepper.h"
+#include <Servo.h>
+#include "IRremote.h"
+
+Servo servo;
+Servo servo1;
+Servo servo2;
+Servo servo0;
+
+int angle=120;
+int angle0=75;
+int angle1=38;
+int angle2=25;
+
+int StepsPerRev = 2048;
+int MotorSpeed = 12;
+Stepper myStepper(StepsPerRev, 8, 10, 9, 11);
+
+int receiver = 6; // Signal Pin of IR receiver to Arduino Digital Pin 6
+IRrecv irrecv(receiver);    // create instance of 'irrecv'
+decode_results results;     // create instance of 'decode_results'
+
+void setup()
+{ 
+  servo.attach(5);  
+  servo.write(angle);
+  
+  servo0.attach(2); 
+  servo0.write(angle0);
+  
+  servo1.attach(3); 
+  servo1.write(angle1);
+  
+  servo2.attach(4);
+  servo2.write(angle2); 
+   
+  irrecv.enableIRIn(); // Start the receiver
+}
+
+void loop()
+{
+if (irrecv.decode(&results)) // have we received an IR signal?
+
+  {
+    switch(results.value)
+
+    {
+
+      case 0xFF6897: // 0 button pressed
+                     myStepper.setSpeed(MotorSpeed);   
+                     myStepper.step(500);
+                      delay(200);
+                      break;
+
+      case 0xFF30CF: // 1 button pressed
+                      myStepper.setSpeed(MotorSpeed);   
+                      myStepper.step(-1000);
+                      delay(200);
+                      break;
+
+      case 0xFF18E7: // 2 button pressed servo 0 moves CW
+                    angle0 +=5;
+                   servo0.write(angle0);
+                      delay(200);
+                      break;
+
+ case 0xFF7A85: // 3 button pressed servo 0 moves CCW
+                    angle0 -=5;
+                   servo0.write(angle0);
+                      delay(200);
+                      break;
+
+
+  case 0xFF38C7: // 5 button pressed servo 1 moves CW
+                    angle1 +=5;
+                   servo1.write(angle1);
+                      delay(200);
+                      break;
+
+ case 0xFF5AA5: // 6 button pressed servo 1 moves CCW
+                    angle1 -=5;
+                   servo1.write(angle1);
+                      delay(200);
+                      break;
+                      
+  case 0xFF4AB5: // 8 button pressed servo 2 moves CW
+                    angle2 +=5;
+                   servo2.write(angle2);
+                      delay(200);
+                      break;
+
+ case 0xFF52AD: // 9 button pressed servo 2 moves CCW
+                    angle2 -=5;
+                   servo2.write(angle2);
+                      delay(200);
+                      break;
+                     
+   case 0xFF10EF: // 4 button pressed servo  moves CW
+                    angle +=10;
+                   servo.write(angle);
+                      delay(200);
+                      break;
+
+case 0xFF42BD: // 7 button pressed servo  moves CCW
+                    angle -=10;
+                   servo.write(angle);
+                      delay(200);
+                      break;
+                      
+    }
+    
+      irrecv.resume(); // receive the next value
+  }  
+
+
+}/* --end main loop -- */
