@@ -1,0 +1,1419 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.10281372462220248 -0.9720635439522977 -0.21100190650373118 4.0262884719204575
+  position 1.578238974305069 1.010912532080805 -1.1259345834421066
+}
+Robot {
+  translation 0.3545680502166045 0.03972057575640944 -0.22895660080179456
+  rotation -7.992463172282707e-08 0.9999999999637674 -8.512284150561696e-06 2.6318359908434013
+  children [
+    DEF Body Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.05 0.2
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 761.5664988560628
+        anchor 0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 0.05
+        rotation -0.5183246937646496 0.5179121021796097 -0.6805193356912642 4.337396931921602
+        children [
+          DEF Wheel Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        boundingObject USE Wheel
+        physics DEF Physics_wh Physics {
+        }
+        linearVelocity 0.019517854296270627 -9.761668731051023e-07 -0.03491478808673162
+        angularVelocity -0.8728712830783486 1.7546139162984323e-06 -0.48795043915054237
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 410.72111996915
+        anchor -0.06 0 0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 0.05
+        rotation -0.6755959347520212 0.6750581537029657 -0.2964230457735795 3.7183706925411952
+        children [
+          USE Wheel
+        ]
+        name "solid(1)"
+        boundingObject USE Wheel
+        physics USE Physics_wh
+        linearVelocity 0.01951798307442972 9.743144023571685e-07 -0.03491501869426929
+        angularVelocity -0.8728713131432637 1.7554416648163207e-06 -0.4879504291106839
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 761.5668685705425
+        anchor 0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.06 0 -0.05
+        rotation -0.5184167532938296 0.5180040884284955 -0.6803791841874999 4.337205282758312
+        children [
+          USE Wheel
+        ]
+        name "solid(2)"
+        boundingObject USE Wheel
+        physics USE Physics_wh
+        linearVelocity 0.01951804897939231 -9.79645378332446e-07 -0.034914679250278524
+        angularVelocity -0.8728712764362515 1.7533247840541755e-06 -0.4879504510312698
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 410.72149977703157
+        anchor -0.06 0 -0.05
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.06 0 -0.05
+        rotation -0.675626549356704 0.6750887439381179 -0.29628356959576296 3.7181140900660457
+        children [
+          USE Wheel
+        ]
+        name "solid(3)"
+        boundingObject USE Wheel
+        physics USE Physics_wh
+        linearVelocity 0.019518177757008627 9.708360195457893e-07 -0.03491490985664254
+        angularVelocity -0.8728713065018293 1.7541428414030252e-06 -0.4879504409910822
+      }
+    }
+    DistanceSensor {
+      translation 0.02 0 0.1
+      rotation 0 1 0 -1.27
+      children [
+        DEF sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_left"
+      boundingObject USE sensor
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation -0.02 0 0.1
+      rotation 0 1 0 -1.87
+      children [
+        DEF sensor Shape {
+          appearance PBRAppearance {
+            baseColor 0 1 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      name "ds_right"
+      boundingObject USE sensor
+      physics Physics {
+      }
+    }
+    Solid {
+      translation 0 0.15 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.02 0.25 0.02
+          }
+        }
+      ]
+      name "solid(4)"
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+        axis 0 1 0
+      }
+      device [
+        LinearMotor {
+          name "linear"
+          maxPosition 0.2
+        }
+      ]
+      endPoint Solid {
+        translation -0.085 0.05000000000000002 0
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0 0.1
+              metalness 0
+            }
+            geometry Box {
+              size 0.15 0.02 0.02
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 1 0
+              anchor -0.075 1 0
+            }
+            device [
+              RotationalMotor {
+                name "RM"
+              }
+            ]
+            endPoint Solid {
+              translation -0.08 4.440892098500626e-16 1.4094628242311558e-18
+              rotation -2.9450962229681184e-17 2.9450962229681184e-17 1 1.5699999999999996
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.01
+                  }
+                }
+                Camera {
+                  translation -0.118576 -0.16687 0.00583264
+                  rotation -0.7069625178409297 -0.7069625178409297 -0.020198929081169423 -3.1004553071795864
+                  name "CAM"
+                  fieldOfView 1
+                  width 640
+                  height 640
+                  recognition Recognition {
+                    frameThickness 3
+                  }
+                }
+              ]
+            }
+          }
+        ]
+        name "solid(5)"
+      }
+    }
+    GPS {
+      translation 0 0 -0.04
+      children [
+        Solid {
+          translation 0 0.03 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Cylinder {
+                height 0.02
+                radius 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "global"
+    }
+    InertialUnit {
+      translation 0 0.03 0.04
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0.7
+            metalness 0
+          }
+          geometry Box {
+            size 0.02 0.02 0.02
+          }
+        }
+      ]
+      name "imu"
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "obstacle_avoidance"
+  linearVelocity 0.01951801502263756 -2.6583767114874698e-09 -0.034914849533340654
+  angularVelocity -8.060606693444707e-06 5.763360918148415e-06 1.4491381168784697e-05
+}
+Solid {
+  translation 0.63 0.06 -0.130004
+  rotation 0 1 0 1.5708
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "textures/wooden_box_base_color.jpg"
+          ]
+        }
+        roughnessMap ImageTexture {
+          url [
+            "textures/wooden_box_roughness.jpg"
+          ]
+        }
+        metalness 0
+        normalMap ImageTexture {
+          url [
+            "textures/wooden_box_normal.jpg"
+          ]
+        }
+        occlusionMap ImageTexture {
+          url [
+            "textures/wooden_box_occlusion.jpg"
+          ]
+        }
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "wooden box(1)"
+  model "wooden box"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  recognitionColors [
+    0 0 0
+  ]
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0.1 0 0
+  floorSize 1.5 1.5
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallHeight 0.2
+}
+Solid {
+  translation 0.14 0 0.25
+  children [
+    Solid {
+      translation 0 0.185 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 10 10
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.1 0.015 0.1
+                0.1 0.015 0.1
+                0.1 0.015 -0.1
+                -0.1 0.015 -0.1
+                -0.1 -0.015 -0.1
+                0.1 -0.015 -0.1
+                0.1 -0.015 0.1
+                -0.1 -0.015 0.1
+                -0.1 -0.015 0.1
+                0.1 -0.015 0.1
+                0.1 0.015 0.1
+                -0.1 0.015 0.1
+                0.1 -0.015 -0.1
+                -0.1 -0.015 -0.1
+                -0.1 0.015 -0.1
+                0.1 0.015 -0.1
+                -0.1 -0.015 -0.1
+                -0.1 -0.015 0.1
+                -0.1 0.015 0.1
+                -0.1 0.015 -0.1
+                0.1 -0.015 0.1
+                0.1 -0.015 -0.1
+                0.1 0.015 -0.1
+                0.1 0.015 0.1
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                1 0
+                1 1
+                0 1
+                0 0
+                1 0
+                1 1
+                0 1
+                0 0
+                1 0
+                1 0.15
+                0 0.15
+                0 0
+                1 0
+                1 0.15
+                0 0.15
+                0 0
+                1 0
+                1 0.15
+                0 0.15
+                0 0
+                1 0
+                1 0.15
+                0 0.15
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "main frame"
+      model "box"
+      boundingObject Box {
+        size 0.2 0.03 0.2
+      }
+    }
+    Solid {
+      translation 0.09 0.085 0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.01 0.085 0.01
+                0.01 0.085 0.01
+                0.01 0.085 -0.01
+                -0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                0.01 -0.085 -0.01
+                0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                0.01 -0.085 0.01
+                0.01 0.085 0.01
+                -0.01 0.085 0.01
+                0.01 -0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 0.085 -0.01
+                0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 -0.085 0.01
+                -0.01 0.085 0.01
+                -0.01 0.085 -0.01
+                0.01 -0.085 0.01
+                0.01 -0.085 -0.01
+                0.01 0.085 -0.01
+                0.01 0.085 0.01
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 1"
+      model "box"
+      boundingObject Box {
+        size 0.02 0.17 0.02
+      }
+    }
+    Solid {
+      translation -0.09 0.085 0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.01 0.085 0.01
+                0.01 0.085 0.01
+                0.01 0.085 -0.01
+                -0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                0.01 -0.085 -0.01
+                0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                0.01 -0.085 0.01
+                0.01 0.085 0.01
+                -0.01 0.085 0.01
+                0.01 -0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 0.085 -0.01
+                0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 -0.085 0.01
+                -0.01 0.085 0.01
+                -0.01 0.085 -0.01
+                0.01 -0.085 0.01
+                0.01 -0.085 -0.01
+                0.01 0.085 -0.01
+                0.01 0.085 0.01
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 2"
+      model "box"
+      boundingObject Box {
+        size 0.02 0.17 0.02
+      }
+    }
+    Solid {
+      translation 0.09 0.085 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.01 0.085 0.01
+                0.01 0.085 0.01
+                0.01 0.085 -0.01
+                -0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                0.01 -0.085 -0.01
+                0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                0.01 -0.085 0.01
+                0.01 0.085 0.01
+                -0.01 0.085 0.01
+                0.01 -0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 0.085 -0.01
+                0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 -0.085 0.01
+                -0.01 0.085 0.01
+                -0.01 0.085 -0.01
+                0.01 -0.085 0.01
+                0.01 -0.085 -0.01
+                0.01 0.085 -0.01
+                0.01 0.085 0.01
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 3"
+      model "box"
+      boundingObject Box {
+        size 0.02 0.17 0.02
+      }
+    }
+    Solid {
+      translation -0.09 0.085 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.01 0.085 0.01
+                0.01 0.085 0.01
+                0.01 0.085 -0.01
+                -0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                0.01 -0.085 -0.01
+                0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                0.01 -0.085 0.01
+                0.01 0.085 0.01
+                -0.01 0.085 0.01
+                0.01 -0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 0.085 -0.01
+                0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 -0.085 0.01
+                -0.01 0.085 0.01
+                -0.01 0.085 -0.01
+                0.01 -0.085 0.01
+                0.01 -0.085 -0.01
+                0.01 0.085 -0.01
+                0.01 0.085 0.01
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 4"
+      model "box"
+      boundingObject Box {
+        size 0.02 0.17 0.02
+      }
+    }
+  ]
+  name "table"
+  model "table"
+  recognitionColors [
+    1 0 0
+  ]
+}
+Solid {
+  translation -0.24 0 0.02
+  children [
+    Solid {
+      translation 0 0.185 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 10 10
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.1 0.015 0.1
+                0.1 0.015 0.1
+                0.1 0.015 -0.1
+                -0.1 0.015 -0.1
+                -0.1 -0.015 -0.1
+                0.1 -0.015 -0.1
+                0.1 -0.015 0.1
+                -0.1 -0.015 0.1
+                -0.1 -0.015 0.1
+                0.1 -0.015 0.1
+                0.1 0.015 0.1
+                -0.1 0.015 0.1
+                0.1 -0.015 -0.1
+                -0.1 -0.015 -0.1
+                -0.1 0.015 -0.1
+                0.1 0.015 -0.1
+                -0.1 -0.015 -0.1
+                -0.1 -0.015 0.1
+                -0.1 0.015 0.1
+                -0.1 0.015 -0.1
+                0.1 -0.015 0.1
+                0.1 -0.015 -0.1
+                0.1 0.015 -0.1
+                0.1 0.015 0.1
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                1 0
+                1 1
+                0 1
+                0 0
+                1 0
+                1 1
+                0 1
+                0 0
+                1 0
+                1 0.15
+                0 0.15
+                0 0
+                1 0
+                1 0.15
+                0 0.15
+                0 0
+                1 0
+                1 0.15
+                0 0.15
+                0 0
+                1 0
+                1 0.15
+                0 0.15
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "main frame"
+      model "box"
+      boundingObject Box {
+        size 0.2 0.03 0.2
+      }
+    }
+    Solid {
+      translation 0.09 0.085 0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.01 0.085 0.01
+                0.01 0.085 0.01
+                0.01 0.085 -0.01
+                -0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                0.01 -0.085 -0.01
+                0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                0.01 -0.085 0.01
+                0.01 0.085 0.01
+                -0.01 0.085 0.01
+                0.01 -0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 0.085 -0.01
+                0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 -0.085 0.01
+                -0.01 0.085 0.01
+                -0.01 0.085 -0.01
+                0.01 -0.085 0.01
+                0.01 -0.085 -0.01
+                0.01 0.085 -0.01
+                0.01 0.085 0.01
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 1"
+      model "box"
+      boundingObject Box {
+        size 0.02 0.17 0.02
+      }
+    }
+    Solid {
+      translation -0.09 0.085 0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.01 0.085 0.01
+                0.01 0.085 0.01
+                0.01 0.085 -0.01
+                -0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                0.01 -0.085 -0.01
+                0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                0.01 -0.085 0.01
+                0.01 0.085 0.01
+                -0.01 0.085 0.01
+                0.01 -0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 0.085 -0.01
+                0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 -0.085 0.01
+                -0.01 0.085 0.01
+                -0.01 0.085 -0.01
+                0.01 -0.085 0.01
+                0.01 -0.085 -0.01
+                0.01 0.085 -0.01
+                0.01 0.085 0.01
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 2"
+      model "box"
+      boundingObject Box {
+        size 0.02 0.17 0.02
+      }
+    }
+    Solid {
+      translation 0.09 0.085 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.01 0.085 0.01
+                0.01 0.085 0.01
+                0.01 0.085 -0.01
+                -0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                0.01 -0.085 -0.01
+                0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                0.01 -0.085 0.01
+                0.01 0.085 0.01
+                -0.01 0.085 0.01
+                0.01 -0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 0.085 -0.01
+                0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 -0.085 0.01
+                -0.01 0.085 0.01
+                -0.01 0.085 -0.01
+                0.01 -0.085 0.01
+                0.01 -0.085 -0.01
+                0.01 0.085 -0.01
+                0.01 0.085 0.01
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 3"
+      model "box"
+      boundingObject Box {
+        size 0.02 0.17 0.02
+      }
+    }
+    Solid {
+      translation -0.09 0.085 -0.09
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8039 0.6745 0.5764
+            baseColorMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_base_color.jpg"
+              ]
+              filtering 5
+            }
+            roughnessMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_roughness.jpg"
+              ]
+              filtering 5
+            }
+            metalness 0
+            normalMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_normal.jpg"
+              ]
+              filtering 5
+            }
+            normalMapFactor 0.5
+            occlusionMap ImageTexture {
+              url [
+                "textures/varnished_pine/varnished_pine_occlusion.jpg"
+              ]
+              filtering 5
+            }
+            textureTransform TextureTransform {
+              scale 4 5
+            }
+          }
+          geometry IndexedFaceSet {
+            coord Coordinate {
+              point [
+                -0.01 0.085 0.01
+                0.01 0.085 0.01
+                0.01 0.085 -0.01
+                -0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                0.01 -0.085 -0.01
+                0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                -0.01 -0.085 0.01
+                0.01 -0.085 0.01
+                0.01 0.085 0.01
+                -0.01 0.085 0.01
+                0.01 -0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 0.085 -0.01
+                0.01 0.085 -0.01
+                -0.01 -0.085 -0.01
+                -0.01 -0.085 0.01
+                -0.01 0.085 0.01
+                -0.01 0.085 -0.01
+                0.01 -0.085 0.01
+                0.01 -0.085 -0.01
+                0.01 0.085 -0.01
+                0.01 0.085 0.01
+              ]
+            }
+            texCoord TextureCoordinate {
+              point [
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 0.11764705882353
+                0 0.11764705882353
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+                0 0
+                0.11764705882353 0
+                0.11764705882353 1
+                0 1
+              ]
+            }
+            coordIndex [
+              0, 1, 2, 3, -1, 4, 5, 6, 7, -1, 8, 9, 10, 11, -1, 12, 13, 14, 15, -1, 16, 17, 18, 19, -1, 20, 21, 22, 23, -1
+            ]
+            creaseAngle 1.5
+          }
+        }
+      ]
+      name "foot 4"
+      model "box"
+      boundingObject Box {
+        size 0.02 0.17 0.02
+      }
+    }
+  ]
+  name "table(1)"
+  model "table"
+  recognitionColors [
+    1 0 0
+  ]
+}
+Ball {
+  translation 0.3992134744099372 0.03241368535516183 0
+  rotation 0 0 1 -8.273303692401801e-14
+  color 1 0 0
+}
