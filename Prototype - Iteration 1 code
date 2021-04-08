@@ -1,0 +1,74 @@
+#include <Servo.h>
+
+Servo servo1;
+Servo servo2;
+Servo servo0;  
+
+int x_key = A0;                                               
+int y_key = A1;                                               
+int x_pos, y_pos;
+int servo1_pin = 3;
+int servo2_pin = 4;  
+int initial_position = 0;
+int initial_position1 = 0;
+
+int pushbutton1 = 8;
+int pushbutton2 = 9;
+int angle=0;
+
+void setup() {
+pinMode(pushbutton1, INPUT_PULLUP);
+pinMode(pushbutton2, INPUT_PULLUP);
+
+  
+  servo0.attach(2);  
+  servo0.write(angle);
+  
+  servo1.attach(3);  
+  servo1.write(initial_position);
+  
+  servo2.attach(4);  
+  servo2.write(initial_position1);
+  
+  pinMode (x_key, INPUT);                     
+  pinMode (y_key, INPUT);
+  
+}
+
+void loop() {
+  if (digitalRead(pushbutton1)==LOW && angle <210) 
+  {angle +=5; 
+  servo0.write(angle); 
+  delay(100);}
+
+ if (digitalRead(pushbutton2)==LOW && angle >0) 
+  {angle -=5; 
+  servo0.write(angle); 
+  delay(100);}
+  
+x_pos = analogRead (x_key) ;  
+y_pos = analogRead (y_key) ;                      
+
+if (x_pos < 300){
+if (initial_position < 10) { } else{ initial_position = initial_position - 5; servo1.write ( initial_position ) ; delay (100) ; } } if (x_pos > 700){
+if (initial_position > 180)
+{  
+}  
+else{
+initial_position = initial_position + 5;
+servo1.write ( initial_position ) ;
+delay (100) ;
+}
+}
+
+if (y_pos < 300){
+if (initial_position1 < 10) { } else{ initial_position1 = initial_position1 - 5; servo2.write ( initial_position1 ) ; delay (100) ; } } if (y_pos > 700){
+if (initial_position1 > 180)
+{  
+}        
+else{
+initial_position1 = initial_position1 + 5;
+servo2.write ( initial_position1 ) ;
+delay (100) ;
+  
+}}}
